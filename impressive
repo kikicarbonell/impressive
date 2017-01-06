@@ -1,0 +1,10 @@
+# !/bin/bash
+#
+# File: server-run
+#
+# Purpose: Run Impressive Tool from Docker image: kikicarbonell/impressive
+#
+
+docker stop impressive
+docker rm   impressive
+docker run --rm -v `pwd`:/pdf -e DISPLAY=unix$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix --name impressive kikicarbonell/impressive $@
